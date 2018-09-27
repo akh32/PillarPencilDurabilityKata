@@ -83,6 +83,13 @@ class PencilSimulatorTest(unittest.TestCase):
         self.pencil.write("The quick brown fox jumps over the lazy dog")
         self.assertEqual("The quick br    fox jumps over the lazy dog", self.pencil.erase("brown"))
 
+    def test_erasing_with_degraded_eraser_fails(self):
+
+        self.pencil = PencilSimulator(4000, 2, 3)
+        self.pencil.write("The quick brown fox jumps over the lazy dog")
+        self.pencil.erase("brown")
+        self.assertEqual("The quick br    fox jumps over the lazy dog", self.pencil.erase("the"))
+
 
 
 

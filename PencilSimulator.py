@@ -18,6 +18,7 @@ class PencilSimulator():
         if(i > -1):
             j = max(0, len(s) - self.eraser)
             self.paper = self.paper[0:i+j] + " "*(len(s)-j) + self.paper[i+len(s):]
+            self.eraser = max(0, self.eraser - len(s))
         return self.paper
 
     def write(self, s):
