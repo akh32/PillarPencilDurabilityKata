@@ -5,6 +5,9 @@ class PencilSimulator():
         self.paper = ''
         self.durability = initialDurability
 
+    def sharpen(self):
+        self.durability = 3
+
     def write(self, s):
         for c in s:
             if(self.durability <= 0):
