@@ -70,6 +70,10 @@ class PencilSimulatorTest(unittest.TestCase):
         self.pencil.sharpen()
         self.assertEqual("hel  abcd  ", self.pencil.write("ef"))
 
+    def test_pencil_will_erase_text(self):
+        self.pencil.write("The quick brown fox jumps over the lazy dog")
+        self.assertEqual("The quick brown     jumps over the lazy dog", self.pencil.erase("fox"))
+
 
 if __name__ == '__main__':
     unittest.main()

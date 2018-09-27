@@ -12,6 +12,12 @@ class PencilSimulator():
             self.durability = self.initialDurability
             self.length -= 1
 
+    def erase(self, s):
+        i = self.paper.find(s)
+        if(i > -1):
+            self.paper = self.paper[0:i] + " "*len(s) + self.paper[i+len(s):]
+        return self.paper
+
     def write(self, s):
         for c in s:
             if(self.durability <= 0):
