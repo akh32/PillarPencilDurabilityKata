@@ -24,6 +24,10 @@ class PencilSimulatorTest(unittest.TestCase):
         self.pencil = PencilSimulator(3)
         self.assertEqual("He   ", self.pencil.write("Hello"))
 
+    def test_pencil_durability_for_spaces(self):
+        self.pencil = PencilSimulator(3)
+        self.assertEqual("hi y  ", self.pencil.write("hi you"))
+
     def test_NOT_IN_REQUIREMENTS_pencil_durability_halfway_through_capitals(self):
         self.pencil = PencilSimulator(3)
         self.assertEqual("HE   ", self.pencil.write("HELLO"))
@@ -46,7 +50,22 @@ class PencilSimulatorTest(unittest.TestCase):
         self.pencil.sharpen()
         self.assertEqual("hel  ", self.pencil.write("hello"))
         self.pencil.sharpen()
-        self.assertEqual("hel   ",self.pencil.write("a"))
+        self.assertEqual("hel   ", self.pencil.write("a"))
+
+    def test_pencil_length_determines_number_of_sharpens_allowed(self):
+        self.pencil = PencilSimulator(3,6)
+        self.pencil.sharpen()
+        self.pencil.sharpen()
+        self.assertEqual("hel  ", self.pencil.write("hello"))
+        self.pencil.sharpen()
+        self.assertEqual("hel  a", self.pencil.write("a"))
+        self.pencil.sharpen()
+        self.pencil.sharpen()
+        self.pencil.sharpen()
+        self.assertEqual("hel  abcd", self.pencil.write("bcd"))
+        self.pencil.sharpen()
+        self.assertEqual("hel  abcd  ", self.pencil.write("ef"))
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,11 +1,11 @@
 
 
 class PencilSimulator():
-    def __init__(self, initialDurability=4000):
+    def __init__(self, initialDurability=4000, length = 2):
         self.paper = ''
         self.durability = initialDurability
         self.initialDurability = initialDurability
-        self.length = 2
+        self.length = length
 
     def sharpen(self):
         if(self.length > 0):
@@ -16,6 +16,8 @@ class PencilSimulator():
         for c in s:
             if(self.durability <= 0):
                 c = " "
+            elif(c == " "):
+                self.durability = self.durability
             elif(c >= 'A' and c <= 'Z'):
                 self.durability -= 2
             else:
