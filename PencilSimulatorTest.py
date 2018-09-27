@@ -16,5 +16,9 @@ class PencilSimulatorTest(unittest.TestCase):
         self.pencil = PencilSimulator(0)
         self.assertEqual("  ", self.pencil.write("hi"))
 
+    def test_pencil_durability_created_at_three(self):
+        self.pencil = PencilSimulator(3)
+        self.assertEqual("hel  ", self.pencil.write("hello"))
+
 if __name__ == '__main__':
     unittest.main()
