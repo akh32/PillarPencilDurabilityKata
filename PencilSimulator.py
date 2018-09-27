@@ -4,9 +4,10 @@ class PencilSimulator():
     def __init__(self, initialDurability=4000):
         self.paper = ''
         self.durability = initialDurability
+        self.initialDurability = initialDurability
 
     def sharpen(self):
-        self.durability = 3
+        self.durability = self.initialDurability
 
     def write(self, s):
         for c in s:

@@ -34,5 +34,11 @@ class PencilSimulatorTest(unittest.TestCase):
         self.pencil.sharpen()
         self.assertEqual("He   Ev      ", self.pencil.write("Everyone"))
 
+    def test_pencil_sharpened_regains_initial_durability_of_four(self):
+        self.pencil = PencilSimulator(4)
+        self.pencil.write("Hello")
+        self.pencil.sharpen()
+        self.assertEqual("Hel  Eve     ", self.pencil.write("Everyone"))
+
 if __name__ == '__main__':
     unittest.main()
