@@ -28,6 +28,10 @@ class PencilSimulatorTest(unittest.TestCase):
         self.pencil = PencilSimulator(3)
         self.assertEqual("hi y  ", self.pencil.write("hi you"))
 
+    def test_pencil_durability_for_newlines(self):
+        self.pencil = PencilSimulator(3)
+        self.assertEqual("hi\ny  ", self.pencil.write("hi\nyou"))
+
     def test_NOT_IN_REQUIREMENTS_pencil_durability_halfway_through_capitals(self):
         self.pencil = PencilSimulator(3)
         self.assertEqual("HE   ", self.pencil.write("HELLO"))

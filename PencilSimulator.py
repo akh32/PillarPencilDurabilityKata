@@ -16,7 +16,7 @@ class PencilSimulator():
         for c in s:
             if(self.durability <= 0):
                 c = " "
-            elif(c == " "):
+            elif(c == " " or c == "\n"):
                 self.durability = self.durability
             elif(c >= 'A' and c <= 'Z'):
                 self.durability -= 2
