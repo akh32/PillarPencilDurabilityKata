@@ -1,11 +1,12 @@
 
 
 class PencilSimulator():
-    def __init__(self, initialDurability=4000, length = 2):
+    def __init__(self, initialDurability=4000, length = 2, eraserDurability = 1000):
         self.paper = ''
         self.durability = initialDurability
         self.initialDurability = initialDurability
         self.length = length
+        self.eraser = eraserDurability
 
     def sharpen(self):
         if(self.length > 0):
@@ -15,7 +16,8 @@ class PencilSimulator():
     def erase(self, s):
         i = self.paper.rfind(s)
         if(i > -1):
-            self.paper = self.paper[0:i] + " "*len(s) + self.paper[i+len(s):]
+            j = max(0, len(s) - self.eraser)
+            self.paper = self.paper[0:i+j] + " "*(len(s)-j) + self.paper[i+len(s):]
         return self.paper
 
     def write(self, s):
