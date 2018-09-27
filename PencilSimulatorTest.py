@@ -74,6 +74,12 @@ class PencilSimulatorTest(unittest.TestCase):
         self.pencil.write("The quick brown fox jumps over the lazy dog")
         self.assertEqual("The quick brown     jumps over the lazy dog", self.pencil.erase("fox"))
 
+    def test_pencil_will_erase_last_instance(self):
+        self.pencil.write("The quick brown dog jumps over the lazy dog")
+        self.assertEqual("The quick brown dog jumps over the lazy    ", self.pencil.erase("dog"))
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

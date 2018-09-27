@@ -13,7 +13,7 @@ class PencilSimulator():
             self.length -= 1
 
     def erase(self, s):
-        i = self.paper.find(s)
+        i = self.paper.rfind(s)
         if(i > -1):
             self.paper = self.paper[0:i] + " "*len(s) + self.paper[i+len(s):]
         return self.paper
