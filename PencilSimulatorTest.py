@@ -40,5 +40,13 @@ class PencilSimulatorTest(unittest.TestCase):
         self.pencil.sharpen()
         self.assertEqual("Hel  Eve     ", self.pencil.write("Everyone"))
 
+    def test_pencil_sharpened_too_many_times_cannot_be_restored(self):
+        self.pencil = PencilSimulator(3)
+        self.pencil.sharpen()
+        self.pencil.sharpen()
+        self.assertEqual("hel  ", self.pencil.write("hello"))
+        self.pencil.sharpen()
+        self.assertEqual("hel   ",self.pencil.write("a"))
+
 if __name__ == '__main__':
     unittest.main()
