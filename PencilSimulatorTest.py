@@ -20,5 +20,9 @@ class PencilSimulatorTest(unittest.TestCase):
         self.pencil = PencilSimulator(3)
         self.assertEqual("hel  ", self.pencil.write("hello"))
 
+    def test_pencil_durability_for_capital_letters(self):
+        self.pencil = PencilSimulator(3)
+        self.assertEqual("He   ", self.pencil.write("Hello"))
+
 if __name__ == '__main__':
     unittest.main()

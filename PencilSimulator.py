@@ -9,6 +9,8 @@ class PencilSimulator():
         for c in s:
             if(self.durability == 0):
                 c = " "
+            elif(c >= 'A' and c <= 'Z'):
+                self.durability -= 2
             else:
                 self.durability -= 1
             self.paper = self.paper + c
