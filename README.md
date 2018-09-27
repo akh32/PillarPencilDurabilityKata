@@ -6,7 +6,7 @@ python PencilSimulatorTest.py
 ```
 
 ## Planned Improvements
-*user interaction
-*paper degradation
-*paper width limitations
-*mechanical pencils
+* user interaction
+* paper degradation
+* paper width limitations
+* mechanical pencils
