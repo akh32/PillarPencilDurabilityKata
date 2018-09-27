@@ -24,5 +24,9 @@ class PencilSimulatorTest(unittest.TestCase):
         self.pencil = PencilSimulator(3)
         self.assertEqual("He   ", self.pencil.write("Hello"))
 
+    def test_NOT_IN_REQUIREMENTS_pencil_durability_halfway_through_capitals(self):
+        self.pencil = PencilSimulator(3)
+        self.assertEqual("HE   ", self.pencil.write("HELLO"))
+
 if __name__ == '__main__':
     unittest.main()

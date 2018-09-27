@@ -7,7 +7,7 @@ class PencilSimulator():
 
     def write(self, s):
         for c in s:
-            if(self.durability == 0):
+            if(self.durability <= 0):
                 c = " "
             elif(c >= 'A' and c <= 'Z'):
                 self.durability -= 2
