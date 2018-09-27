@@ -93,6 +93,12 @@ class PencilSimulatorTest(unittest.TestCase):
         self.pencil.write("An       a day keeps the doctor away")
         self.assertEqual("An artich@k@ay keeps the doctor away", self.pencil.writeInFirstOpenSpace("artichoke"))
 
+    def test_inserting_text_uses_durability(self):
+        self.pencil = PencilSimulator(28)
+        self.pencil.write("An       a day keeps the doctor away")
+        self.assertEqual("An Ar    a day keeps the doctor away", self.pencil.writeInFirstOpenSpace("Artichoke"))
+
+
 
 if __name__ == '__main__':
     unittest.main()

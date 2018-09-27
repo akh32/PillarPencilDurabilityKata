@@ -28,10 +28,19 @@ class PencilSimulator():
             end = i + len(s)
             newstring = ""
             for c in self.paper[i:i+len(s)]:
-                if(c == " "):
-                    newstring += s[0]
+                if(self.durability > 0):
+                    if(s[0] != " " and s[0] != "\n"):
+                        if(s[0] >= 'A' and s[0] <= 'Z'):
+                            self.durability -= 2
+                        else:
+                            self.durability -= 1
+
+                    if(c == " "):
+                        newstring += s[0]
+                    else:
+                        newstring += "@"
                 else:
-                    newstring += "@"
+                    newstring += c
                 s = s[1:]
             self.paper = self.paper[0:i] + newstring + self.paper[end:]
         return self.paper
@@ -40,11 +49,10 @@ class PencilSimulator():
         for c in s:
             if(self.durability <= 0):
                 c = " "
-            elif(c == " " or c == "\n"):
-                self.durability = self.durability
-            elif(c >= 'A' and c <= 'Z'):
-                self.durability -= 2
-            else:
-                self.durability -= 1
+            elif(c != " " and c != "\n"):
+                if(c >= 'A' and c <= 'Z'):
+                    self.durability -= 2
+                else:
+                    self.durability -= 1
             self.paper = self.paper + c
         return self.paper
