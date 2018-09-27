@@ -84,13 +84,14 @@ class PencilSimulatorTest(unittest.TestCase):
         self.assertEqual("The quick br    fox jumps over the lazy dog", self.pencil.erase("brown"))
 
     def test_erasing_with_degraded_eraser_fails(self):
-
         self.pencil = PencilSimulator(4000, 2, 3)
         self.pencil.write("The quick brown fox jumps over the lazy dog")
         self.pencil.erase("brown")
         self.assertEqual("The quick br    fox jumps over the lazy dog", self.pencil.erase("the"))
 
-
+    def test_inserting_text_in_spaces(self):
+        self.pencil.write("An       a day keeps the doctor away")
+        self.assertEqual("An artich@k@ay keeps the doctor away", self.pencil.writeInFirstOpenSpace("artichoke"))
 
 
 if __name__ == '__main__':

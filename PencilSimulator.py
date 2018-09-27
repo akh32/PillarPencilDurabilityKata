@@ -21,6 +21,21 @@ class PencilSimulator():
             self.eraser = max(0, self.eraser - len(s))
         return self.paper
 
+    def writeInFirstOpenSpace(self, s):
+        i = self.paper.find("   ")
+        if(i > -1):
+            i += 1
+            end = i + len(s)
+            newstring = ""
+            for c in self.paper[i:i+len(s)]:
+                if(c == " "):
+                    newstring += s[0]
+                else:
+                    newstring += "@"
+                s = s[1:]
+            self.paper = self.paper[0:i] + newstring + self.paper[end:]
+        return self.paper
+
     def write(self, s):
         for c in s:
             if(self.durability <= 0):
